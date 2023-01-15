@@ -1,15 +1,12 @@
 import React from "react";
-import {Link, useNavigate } from "react-router-dom";
+import {Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
-  const handleDashboard = () => {
-    navigate("/dashboard");
-  };
+  const handleDashboard = () =>{
+    
+  }
+  const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
   return (
     <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#ffffff"}}>
       <div className="container-fluid">
@@ -45,23 +42,23 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          {!localStorage.getItem("token") ? (
+          { isAuthenticated ? (
+            <form className="d-flex " role="button">
+              <button onClick={handleDashboard}className="btn btn-primary mx-1"  data-bs-toggle="collapse">
+                Dashboard
+              </button>
+              <button onClick={() => logout({ returnTo: window.location.origin })} className="btn btn-primary mx-1">
+                Logout
+              </button>
+            </form>
+          ) : (
             <form className="d-flex" role="button">
-              <Link className="btn btn-primary mx-1" to="/login" type="submit">
+              <Link onClick={() => loginWithRedirect()} className="btn btn-primary mx-1" to="/login" type="submit">
                 Login
               </Link>
               <Link className="btn btn-primary mx-1" to="/signup" type="submit">
                 Sign-up
               </Link>
-            </form>
-          ) : (
-            <form className="d-flex " role="button">
-              <button onClick={handleDashboard}className="btn btn-primary mx-1"  data-bs-toggle="collapse">
-                Dashboard
-              </button>
-              <button onClick={handleLogout} className="btn btn-primary mx-1">
-                Logout
-              </button>
             </form>
           )}
         </div>
