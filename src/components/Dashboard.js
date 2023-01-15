@@ -1,9 +1,11 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+const { user, isAuthenticated} = useAuth0();
 
 const Dashboard = () => {
   return (
     <div className="container my-3">
-      <h1 className="my-3">Student Dashboard...</h1>
+      <h1 className="my-3">{isAuthenticated?`${user.name}'s DashBoard...`:"Your DashBoard..."}</h1>
       <ul className="list-group">
         <li className="list-group-item">Your Courses...</li>
         <li className="list-group-item">Your Papers...</li>
