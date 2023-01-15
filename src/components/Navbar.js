@@ -1,10 +1,11 @@
 import React from "react";
-import {Link,Navigate } from "react-router-dom";
+import {Link,useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const handleDashboard = () =>{
-    <Navigate to="/Dashboard" replace={true}/>
+    navigate("/Dashboard")
   }
   const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
   return (
