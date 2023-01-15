@@ -4,7 +4,7 @@ var cors = require('cors')
 
 connectToMongo();
 const app = express()
-const PORT = process.env.PUBLIC_URL;
+const PORT = `https://rbs-mtc-helper.vercel.app`;
 
 app.use(cors())
 app.use(express.json())
