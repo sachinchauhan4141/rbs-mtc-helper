@@ -11,7 +11,7 @@ const Navbar = () => {
     navigate("/dashboard");
   };
   return (
-    <nav className="navbar navbar-expand-lg  fixed-top" style={{backgroundColor: "#ffffff"}}>
+    <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#ffffff"}}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           RBS

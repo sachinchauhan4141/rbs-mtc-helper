@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <>
-      <div className="container my-3">
+      <div className="container my-4">
         <div className="card text-bg-dark mb-3">
           <img
             src="https://images.unsplash.com/photo-1673059291336-4ac9b958d898?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
