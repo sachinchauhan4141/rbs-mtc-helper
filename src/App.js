@@ -5,10 +5,8 @@ import Home from "./components/Home";
 import Courses from "./components/Courses";
 import Updates from "./components/Updates";
 import Dashboard from "./components/Dashboard";
-import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-  const {isAuthenticated} = useAuth0();
   return (
     <>
       <BrowserRouter>
