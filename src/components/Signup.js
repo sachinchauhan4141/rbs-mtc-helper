@@ -12,7 +12,7 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = credentials;
-    const response = await fetch(`https://rbs-mtc-helper.vercel.app/api/auth/createuser`, {
+    const response = await fetch(`http://localhost:${5000||process.env.PUBLIC_URL}/api/auth/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
