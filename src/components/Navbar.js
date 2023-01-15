@@ -56,9 +56,6 @@ const Navbar = () => {
               <Link onClick={() => loginWithRedirect()} className="btn btn-primary mx-1" to="/login" type="submit">
                 Login
               </Link>
-              <Link className="btn btn-primary mx-1" to="/signup" type="submit">
-                Sign-up
-              </Link>
             </form>
           )}
         </div>
