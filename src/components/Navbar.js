@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
   const handleDashboard = () =>{
-    <Navigate to="/Dashboard" />
+    <Navigate to="/Dashboard" replace={true}/>
   }
   const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
   return (
