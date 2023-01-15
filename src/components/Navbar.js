@@ -3,11 +3,11 @@ import {Link,useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
+  const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
   const navigate = useNavigate()
   const handleDashboard = () =>{
-    navigate("/Dashboard")
+    isAuthenticated?navigate("/Dashboard"):navigate("/")
   }
-  const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
   return (
     <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#ffffff"}}>
       <div className="container-fluid">
