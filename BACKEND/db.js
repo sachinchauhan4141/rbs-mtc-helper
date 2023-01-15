@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoURI = "mongodb+srv://Sachin_chauhan:Atlas_password@cluster0.xcejt8u.mongodb.net/?retryWrites=true&w=majority"
+const mongoURI = "mongodb+srv://cluster0.xcejt8u.mongodb.net/test"
 
 mongoose.set('strictQuery', false);
 
