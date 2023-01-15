@@ -1,6 +1,9 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Home = () => {
+  const { user, isAuthenticated} = useAuth0();
   return (
     <>
       <div className="container my-4">
@@ -11,7 +14,7 @@ const Home = () => {
             alt="..."
           />
           <div className="card-img-overlay">
-            <h1 className="card-title">Welcome...</h1>
+            <h1 className="card-title">{isAuthenticated?`Welcome ${user.name}`:"Welcome..."}</h1>
             <p className="card-text">
               <h4>Your raja balwant singh management technical campus helper</h4>
             </p>
