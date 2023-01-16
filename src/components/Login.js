@@ -6,9 +6,9 @@ function Login() {
   const { loginWithRedirect } = useAuth0();
   return (
     <div className="container">
-      <h1>Thanks For Visiting...</h1>
+      <h1 className="my-5">Thanks For Visiting...</h1>
       <h3 className="my-5">Login To Continue...</h3>
-      <h5>Click on the button below..</h5>
+      <h5 className="my-5">Click on the button below..</h5>
       <Link
         onClick={() => loginWithRedirect()}
         className="btn btn-primary mx-1"
