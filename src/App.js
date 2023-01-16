@@ -26,12 +26,18 @@ function App() {
     </BrowserRouter>
   ) : (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Courses" element={<Courses />} />
-        <Route path="/Updates" element={<Updates />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-      </Routes>
+      <div className="container">
+        <form className="d-flex" role="button">
+          <Link
+            onClick={() => loginWithRedirect()}
+            className="btn btn-primary mx-1"
+            to="/login"
+            type="submit"
+          >
+            Login
+          </Link>
+        </form>
+      </div>
     </BrowserRouter>
   );
 }
