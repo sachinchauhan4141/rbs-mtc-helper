@@ -8,13 +8,13 @@ import Dashboard from "./components/Dashboard";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-  const {isAuthenticated, isLoading } = useAuth0();
+  const { loginWithRedirect,isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
     return <div>Loading ...</div>;
   }
-  
-  return ( isAuthenticated && (
+
+  return ( isAuthenticated? (
     <>
       <BrowserRouter>
         <Navbar />
@@ -26,7 +26,9 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-  ));
+  ):(<Link onClick={() => loginWithRedirect()} className="btn btn-primary mx-1" to="/login" type="submit">
+  Login
+</Link>));
 }
 
 export default App;
