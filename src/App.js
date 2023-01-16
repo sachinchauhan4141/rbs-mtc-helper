@@ -8,27 +8,32 @@ import Dashboard from "./components/Dashboard";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-  const { loginWithRedirect,isAuthenticated, isLoading } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
     return <div>Loading ...</div>;
   }
 
-  return ( isAuthenticated? (
-    <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/Courses" element={<Courses />} />
-          <Route path="/Updates" element={<Updates />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  ):(<Link onClick={() => loginWithRedirect()} className="btn btn-primary mx-1" to="/login" type="submit">
-  Login
-</Link>));
+  return isAuthenticated ? (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Courses" element={<Courses />} />
+        <Route path="/Updates" element={<Updates />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
+  ) : (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Courses" element={<Courses />} />
+        <Route path="/Updates" element={<Updates />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
