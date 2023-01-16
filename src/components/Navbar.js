@@ -5,9 +5,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Navbar = () => {
   const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
   const navigate = useNavigate()
-  const handleDashboard = () =>{
-    isAuthenticated?navigate("/Dashboard"):navigate("/")
-  }
   return (
     <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#ffffff"}}>
       <div className="container-fluid">
@@ -45,7 +42,7 @@ const Navbar = () => {
           </ul>
           { isAuthenticated ? (
             <form className="d-flex " role="button">
-              <button onClick={handleDashboard}className="btn btn-primary mx-1"  data-bs-toggle="collapse">
+              <button className="btn btn-primary mx-1"  data-bs-toggle="collapse">
                 Dashboard
               </button>
               <button onClick={() => logout({ returnTo: window.location.origin })} className="btn btn-primary mx-1">
