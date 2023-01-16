@@ -3,8 +3,11 @@ import {Link,useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
+  const { isAuthenticated,logout } = useAuth0();
   const navigate = useNavigate()
+  const handleDashboard = () =>{
+    navigate('/Dashboard')
+  }
   return (
     <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#ffffff"}}>
       <div className="container-fluid">
@@ -42,20 +45,14 @@ const Navbar = () => {
           </ul>
           { isAuthenticated ? (
             <form className="d-flex " role="button">
-              <button className="btn btn-primary mx-1"  data-bs-toggle="collapse">
+              <button onClick={handleDashboard} className="btn btn-primary mx-1"  data-bs-toggle="collapse">
                 Dashboard
               </button>
               <button onClick={() => logout({ returnTo: window.location.origin })} className="btn btn-primary mx-1">
                 Logout
               </button>
             </form>
-          ) : (
-            <form className="d-flex" role="button">
-              <Link onClick={() => loginWithRedirect()} className="btn btn-primary mx-1" to="/login" type="submit">
-                Login
-              </Link>
-            </form>
-          )}
+          ) :navigate('/Login')}
         </div>
       </div>
     </nav>
