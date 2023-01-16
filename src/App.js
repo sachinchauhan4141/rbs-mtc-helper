@@ -5,15 +5,11 @@ import Home from "./components/Home";
 import Courses from "./components/Courses";
 import Updates from "./components/Updates";
 import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-  const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-
+  const { isAuthenticated } = useAuth0();
   return isAuthenticated ? (
     <BrowserRouter>
       <Navbar />
@@ -26,18 +22,9 @@ function App() {
     </BrowserRouter>
   ) : (
     <BrowserRouter>
-      <div className="container">
-        <form className="d-flex" role="button">
-          <Link
-            onClick={() => loginWithRedirect()}
-            className="btn btn-primary mx-1"
-            to="/login"
-            type="submit"
-          >
-            Login
-          </Link>
-        </form>
-      </div>
+      <Routes>
+        <Route path="/Login" element={<Login />} />
+      </Routes>
     </BrowserRouter>
   );
 }
